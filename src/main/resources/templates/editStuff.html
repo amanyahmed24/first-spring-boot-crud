@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+
+<h2>Edit Stuff</h2>
+
+<form action="/updateStuff" method="POST" th:object="${stuff}">
+
+  <!-- Hidden ID -->
+  <input type="hidden" name="id" th:value="${stuff.id}">
+
+  <label>Stuff Name:</label>
+  <p th:errors="*{name}" style="color: red"></p>
+  <input type="text" th:field="*{name}" th:value="${stuff.name}" >
+
+  <br><br>
+
+  <label>Position:</label>
+  <p th:errors="*{position}" style="color: red" ></p>
+  <input type="text" th:field="*{position}" th:value="${stuff.position}" >
+
+  <br><br>
+
+  <label>Salary:</label>
+  <input type="number" name="salary" th:value="${stuff.salary}">
+
+  <br><br>
+
+  <button type="submit">Update Stuff</button>
+
+</form>
+
+</body>
+</html>
+

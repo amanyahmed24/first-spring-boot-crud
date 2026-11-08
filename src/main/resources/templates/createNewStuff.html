@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<form action="/addNewStuff" method="POST" th:object="${stuff}">
+
+  <label>Stuff Name:</label>
+  <p th:errors="*{name}" style="color: red"></p>
+  <input type="text" th:field="*{name}" placeholder="Enter stuff name" >
+
+  <br><br>
+
+  <label>Position:</label>
+  <p th:errors="*{position}" style="color: red" ></p>
+  <input type="text" th:field="*{position}" placeholder="Enter position">
+
+  <br><br>
+
+  <label for="salary">Salary:</label>
+  <input type="number" id="salary" name="salary" placeholder="Enter salary" >
+
+  <br><br>
+
+  <button type="submit">Submit</button>
+
+</form>
+</body>
+</html>

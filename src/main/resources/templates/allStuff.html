@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>All Stuff</title>
+</head>
+<body>
+<h1>All Stuff</h1>
+
+<form th:action="@{/createNewStuff}" method="GET">
+<button style="color:green" type="submit">Add New Stuff</button>
+  </form>
+
+
+<table>
+  <thead>
+  <tr>
+    <th>name</th>
+    <th>position</th>
+    <th>salary</th>
+    <th>action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="oneStuff:${allStuff}" >
+    <td th:text="${oneStuff.name}"></td>
+    <td th:text="${oneStuff.position}"></td>
+    <td th:text="${oneStuff.salary}"></td>
+    <td>
+      <form th:action="@{/editStuff}" method="GET">
+        <input type="hidden" name="id" th:value="${oneStuff.id}">
+        <button type="submit" style="color: blue">Edit</button>
+
+      </form>
+    </td>
+    <td>
+      <form th:action="@{/deleteStuff}" method="POST">
+        <input type="hidden" name="id" th:value="${oneStuff.id}">
+        <button type="submit" style="color: red">Delete</button>
+      </form>
+    </td>
+
+  </tbody>
+</table>
+</body>
+</html>
